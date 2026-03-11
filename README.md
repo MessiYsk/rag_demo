@@ -185,11 +185,14 @@ pip install -r requirements.txt
 
 #### 2. 配置环境变量
 
-编辑项目根目录下的 `config.env` 文件：
+编辑项目根目录下的 `config.env` 文件（首次使用需从示例文件复制）：
 
 ```bash
-vim config.env
+cp config.env.example config.env
+vim config.env  # 填入你的 API Key
 ```
+
+> **注意：** `config.env` 包含 API Key 等敏感信息，已被 `.gitignore` 忽略，不会提交到仓库。提交到仓库的是不含密钥的 `config.env.example`。
 
 本项目支持两种模型接入方式：
 
@@ -247,7 +250,8 @@ OLLAMA_BASE_URL=http://localhost:11434
 rag-demo/
 ├── README.md              # 本文档
 ├── requirements.txt       # Python 依赖
-├── config.env             # 环境变量配置（含 API Key，勿提交到公共仓库）
+├── config.env.example     # 环境变量示例（提交到仓库）
+├── config.env             # 实际配置（含 API Key，已被 .gitignore 忽略）
 ├── config.py              # 配置管理
 ├── document_loader.py     # 文档/图片加载器（PDF/TXT/CSV/DOCX/图片）
 ├── text_splitter.py       # 文本分块（仅文本文档）
